@@ -1,7 +1,6 @@
 FROM google/cloud-sdk:latest
 
-RUN mkdir /theia && \
-    apt update && \
+RUN apt update && \
     apt -y upgrade google-cloud-sdk  && \
     apt -y install default-libmysqlclient-dev neovim zsh tmux && \
     apt -y install python-dev zlib1g-dev libjpeg-dev && \
@@ -35,11 +34,3 @@ pip3  install --upgrade google-api-python-client &&     \
 pip3  install --upgrade oauth2client && \
 cp /usr/lib/python3.7/configparser.py /usr/lib/python3.7/ConfigParser.py && \
 pip3 install --upgrade MySQL-python
-
-ADD ./package.json /theia
-
-RUN n 8 && \
-cd /theia && \
-yarn && \
-yarn theia build && \
-n 10.11.0
