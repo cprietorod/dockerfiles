@@ -34,3 +34,10 @@ pip3  install --upgrade google-api-python-client &&     \
 pip3  install --upgrade oauth2client && \
 cp /usr/lib/python3.7/configparser.py /usr/lib/python3.7/ConfigParser.py && \
 pip3 install --upgrade MySQL-python
+
+RUN cd /root && \
+    wget https://github.com/codercom/code-server/releases/download/1.903-vsc1.33.1/code-server1.903-vsc1.33.1-linux-x64.tar.gz && \
+    tar -xvf code-server1.903-vsc1.33.1-linux-x64.tar.gz && \
+    chmod 777 ./code-server1.903-vsc1.33.1-linux-x64/code-server && \
+    mv ./code-server1.903-vsc1.33.1-linux-x64/code-server /usr/local/bin/  && \
+    rm -rf ./code-server1.903-vsc1.33.1-linux-x64 
