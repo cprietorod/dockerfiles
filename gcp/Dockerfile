@@ -4,6 +4,7 @@ RUN apt update && \
     apt -y upgrade google-cloud-sdk  && \
     apt -y install default-libmysqlclient-dev neovim zsh tmux && \
     apt -y install python-dev zlib1g-dev libjpeg-dev && \
+    apt -y install libmariadb-dev && \
     echo 'deb http://deb.debian.org/debian buster main' >> /etc/apt/sources.list && \
     apt update && \
     apt -y install python3.7 python3-pip && \
@@ -25,7 +26,8 @@ pip2  install --upgrade google-cloud-dataflow &&     \
 pip2  install --upgrade firebase-admin &&     \
 pip2  install --upgrade google-api-python-client &&     \
 pip2  install --upgrade oauth2client &&\
-pip2 install --upgrade MySQL-python
+pip2  install --upgrade MySQL-python &&\
+pip2  install --upgrade pylint
 
 RUN pip3  install --upgrade google-cloud-automl &&     \
 pip3  install --upgrade google-cloud-storage &&     \
@@ -33,7 +35,9 @@ pip3  install --upgrade firebase-admin &&     \
 pip3  install --upgrade google-api-python-client &&     \
 pip3  install --upgrade oauth2client && \
 cp /usr/lib/python3.7/configparser.py /usr/lib/python3.7/ConfigParser.py && \
-pip3 install --upgrade MySQL-python
+pip3 install --upgrade MySQL-python && \
+pip3 install --upgrade virtualenv  &&\ 
+pip3 install --upgrade pylint
 
 RUN cd /root && \
     wget https://github.com/codercom/code-server/releases/download/1.903-vsc1.33.1/code-server1.903-vsc1.33.1-linux-x64.tar.gz && \
