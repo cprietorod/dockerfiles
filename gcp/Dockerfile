@@ -15,6 +15,8 @@ RUN apt update && \
     apt install -y  nodejs &&\
     rm -rf /var/lib/apt/lists/*
 
+RUN gem install colorls
+
 RUN npm install -g n && \
     n 10.11.0 && \
     npm install -gq gulp bower yarn
