@@ -5,6 +5,7 @@ RUN apt update && \
     apt -y install default-libmysqlclient-dev neovim zsh tmux && \
     apt -y install python-dev zlib1g-dev libjpeg-dev && \
     apt -y install libmariadb-dev && \
+    apt -y install wget && \
     echo 'deb http://deb.debian.org/debian buster main' >> /etc/apt/sources.list && \
     apt update && \
     apt -y install python3.7 python3-pip && \
