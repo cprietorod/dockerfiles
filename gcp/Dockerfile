@@ -2,7 +2,7 @@ FROM google/cloud-sdk:latest
 
 RUN apt update && \
     apt -y upgrade google-cloud-sdk  && \
-    apt -y install default-libmysqlclient-dev  python-dev zlib1g-dev libjpeg-dev mysql-client && \
+    apt -y install sudo default-libmysqlclient-dev  python-dev zlib1g-dev libjpeg-dev mysql-client && \
     apt -y install libmariadb-dev neovim zsh tmux wget && \
     apt -y install python3.7 python3-pip && \
     apt -y install python3.7-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev && \
