@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  env:
+    image: "cprietorod/my-cloud-sdk-docker:latest"
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+      - "8443:8443"
+    volumes:
+      - ~:/root:cached
+      - /Users:/Users
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.config:/root/.config:cached
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-datavolume:/var/lib/mysql
+volumes:
+  my-datavolume:
