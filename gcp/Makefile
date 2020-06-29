@@ -9,6 +9,7 @@ create_gcp:
 create_local:
 	@echo "build "$(version)
 	docker build -t cprietorod/my-cloud-sdk-docker:$(version) .
+
 	
 pull:
 	@echo "pull from gcp "$(version)
